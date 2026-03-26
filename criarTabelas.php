@@ -94,4 +94,5 @@ try {
 } catch (PDOException $e) {
     echo "Erro ao criar as tabelas: " . $e->getMessage();
 }
+
 ?>
