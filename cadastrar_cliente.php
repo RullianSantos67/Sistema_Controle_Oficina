@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(':telefone', $telefone);
         $stmt->bindParam(':cpf', $cpf);
         $stmt->execute();
-        $mensagem = "<div class='alerta sucesso'>✅ Cliente <b>$nome</b> cadastrado com sucesso!</div>";
+        $mensagem = "<div class='alerta sucesso'>✅ Cliente <b>$nome</b> cadastro com sucesso!</div>";
     } catch (PDOException $e) {
         $mensagem = "<div class='alerta erro'>❌ Erro ao cadastrar (CPF já existe?): " . $e->getMessage() . "</div>";
     }
