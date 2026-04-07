@@ -1,5 +1,5 @@
 <?php
-require 'conexaoBD.php';
+        require 'config/conexaoBD.php';
 $mensagem = ""; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-require 'cabecalho.php'; 
+    require 'includes/cabecalho.php'; 
 ?>
 
 <div class="cartao" style="max-width: 600px;">
@@ -50,4 +50,4 @@ require 'cabecalho.php';
     </form>
 </div>
 
-<?php require 'rodape.php'; ?>
+<?php require 'includes/rodape.php'; ?>

@@ -1,5 +1,5 @@
 <?php
-require 'conexaoBD.php';
+    require 'config/conexaoBD.php';
 
 try {
     // O comando JOIN junta as informações do veículo com as do cliente dono dele
@@ -13,7 +13,7 @@ try {
     die("Erro ao buscar os veículos: " . $e->getMessage());
 }
 
-require 'cabecalho.php'; 
+        require 'includes/cabecalho.php'; 
 ?>
 
 <div class="cartao">
@@ -51,4 +51,5 @@ require 'cabecalho.php';
     <a href="cadastrar_veiculo.php" class="btn" style="width: auto; padding: 10px 20px; margin-top: 20px;">➕ Cadastrar Novo Veículo</a>
 </div>
 
-<?php require 'rodape.php'; ?>
+<?php require 'includes/rodape.php';
+ ?>

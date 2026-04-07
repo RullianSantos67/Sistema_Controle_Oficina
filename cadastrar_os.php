@@ -1,5 +1,5 @@
 <?php
-require 'conexaoBD.php';
+    require 'config/conexaoBD.php';
 $mensagem = ""; 
 
 // Busca veículos e dono para o Select
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-require 'cabecalho.php'; 
+            require 'includes/cabecalho.php'; 
 ?>
 
 <div class="cartao">
@@ -86,4 +86,4 @@ require 'cabecalho.php';
     </form>
 </div>
 
-<?php require 'rodape.php'; ?>
+<?php require 'includes/rodape.php'; ?>

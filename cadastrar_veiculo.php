@@ -1,5 +1,5 @@
 <?php
-require 'conexaoBD.php';
+        require 'config/conexaoBD.php';
 $mensagem = ""; 
 
 // 1. Busca todos os clientes para colocar na lista de seleção (dropdown)
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-require 'cabecalho.php'; // Puxa o visual do sistema
+    require 'includes/cabecalho.php'; // Puxa o visual do sistema
 ?>
 
 <div class="cartao" style="max-width: 600px;">
@@ -93,4 +93,4 @@ require 'cabecalho.php'; // Puxa o visual do sistema
     });
 </script>
 
-<?php require 'rodape.php'; ?>
+<?php require 'includes/rodape.php'; ?>

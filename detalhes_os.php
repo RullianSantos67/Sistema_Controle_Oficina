@@ -1,5 +1,5 @@
 <?php
-require 'conexaoBD.php';
+    require 'config/conexaoBD.php';
 $mensagem = "";
 
 // Pega o ID da OS na URL (Ex: detalhes_os.php?id=1)
@@ -70,7 +70,7 @@ $listaServicos = $conexao->query("SELECT * FROM servico")->fetchAll();
 $pecas_usadas = $conexao->query("SELECT p.descricao, op.quantidade, op.preco_unitario FROM os_peca op JOIN peca p ON op.id_peca = p.id_peca WHERE op.id_os = $id_os")->fetchAll();
 $servicos_feitos = $conexao->query("SELECT s.descricao, os.horas_gastas, os.valor_cobrado FROM os_servico os JOIN servico s ON os.id_servico = s.id_servico WHERE os.id_os = $id_os")->fetchAll();
 
-require 'cabecalho.php'; 
+        require 'includes/cabecalho.php'; 
 ?>
 
 <div class="cartao">
@@ -135,4 +135,4 @@ require 'cabecalho.php';
 
     </div>
 </div>
-<?php require 'rodape.php'; ?>
+    <?php require 'includes/rodape.php'; ?>

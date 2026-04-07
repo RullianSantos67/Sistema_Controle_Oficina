@@ -1,12 +1,12 @@
 <?php 
-require 'conexaoBD.php';
+        require 'config/conexaoBD.php';
 
 // Contagens para o painel
 $totalClientes = $conexao->query("SELECT COUNT(*) FROM cliente")->fetchColumn();
 $totalVeiculos = $conexao->query("SELECT COUNT(*) FROM veiculo")->fetchColumn();
 $totalOS = $conexao->query("SELECT COUNT(*) FROM ordem_servico WHERE status = 'Aberta' OR status = 'Em Andamento'")->fetchColumn();
 
-require 'cabecalho.php'; 
+            require 'includes/cabecalho.php'; 
 ?>
 
 <div class="dashboard-grid">
@@ -36,4 +36,4 @@ require 'cabecalho.php';
     </div>
 </div>
 
-<?php require 'rodape.php'; ?>
+<?php require 'includes/rodape.php'; ?>

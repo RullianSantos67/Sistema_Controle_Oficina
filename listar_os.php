@@ -1,5 +1,5 @@
 <?php
-require 'conexaoBD.php';
+        require 'config/conexaoBD.php';
 
 try {
     $sql = "SELECT os.id_os, os.data_entrada, os.data_previsao, os.status, 
@@ -15,7 +15,7 @@ try {
     die("Erro: " . $e->getMessage());
 }
 
-require 'cabecalho.php'; 
+    require 'includes/cabecalho.php'; 
 ?>
 
 <div class="cartao" style="max-width: 1000px;">
@@ -66,4 +66,4 @@ require 'cabecalho.php';
     <a href="cadastrar_os.php" class="btn" style="width: auto; padding: 10px 20px; margin-top: 20px;">📝 Abrir Nova O.S.</a>
 </div>
 
-<?php require 'rodape.php'; ?>
+<?php require 'includes/rodape.php'; ?>

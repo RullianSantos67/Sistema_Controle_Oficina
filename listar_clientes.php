@@ -1,5 +1,5 @@
 <?php
-require 'conexaoBD.php';
+        require 'config/conexaoBD.php';
 
 try {
     $sql = "SELECT * FROM cliente";
@@ -8,7 +8,7 @@ try {
     die("Erro: " . $e->getMessage());
 }
 
-require 'cabecalho.php'; // Puxa o visual
+require 'includes/cabecalho.php';
 ?>
 
 <div class="cartao">
@@ -35,4 +35,4 @@ require 'cabecalho.php'; // Puxa o visual
     </table>
 </div>
 
-<?php require 'rodape.php'; ?>
+<?php require 'includes/rodape.php'; ?>

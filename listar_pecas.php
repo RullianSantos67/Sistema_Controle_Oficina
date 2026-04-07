@@ -1,5 +1,5 @@
 <?php
-require 'conexaoBD.php';
+    require 'config/conexaoBD.php';
 
 try {
     $pecas = $conexao->query("SELECT * FROM peca ORDER BY descricao ASC")->fetchAll(PDO::FETCH_ASSOC);
@@ -7,7 +7,7 @@ try {
     die("Erro: " . $e->getMessage());
 }
 
-require 'cabecalho.php'; 
+            require 'includes/cabecalho.php'; 
 ?>
 
 <div class="cartao">
@@ -51,4 +51,4 @@ require 'cabecalho.php';
     <a href="cadastrar_peca.php" class="btn" style="width: auto; padding: 10px 20px; margin-top: 20px;">➕ Adicionar Peça</a>
 </div>
 
-<?php require 'rodape.php'; ?>
+<?php require 'includes/rodape.php'; ?>

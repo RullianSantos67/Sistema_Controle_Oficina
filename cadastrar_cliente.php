@@ -1,5 +1,5 @@
 <?php
-require 'conexaoBD.php';
+require 'config/conexaoBD.php';
 $mensagem = ""; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -20,8 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-require 'cabecalho.php'; // Puxa o visual
-?>
+require 'includes/cabecalho.php';?>
 
 <div class="cartao" style="max-width: 600px;">
     <h3>Cadastrar Novo Cliente</h3>
@@ -44,4 +43,4 @@ require 'cabecalho.php'; // Puxa o visual
     </form>
 </div>
 
-<?php require 'rodape.php'; ?>
+    <?php require 'includes/rodape.php'; ?>

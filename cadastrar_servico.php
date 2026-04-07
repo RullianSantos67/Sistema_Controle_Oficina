@@ -1,5 +1,5 @@
 <?php
-require 'conexaoBD.php';
+        require 'config/conexaoBD.php';
 $mensagem = ""; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mensagem = "<div class='alerta erro'>❌ Erro: " . $e->getMessage() . "</div>";
     }
 }
-require 'cabecalho.php'; 
+        require 'includes/cabecalho.php'; 
 ?>
 <div class="cartao" style="max-width: 500px;">
     <h3>🛠️ Registar Mão de Obra</h3>
@@ -32,4 +32,4 @@ require 'cabecalho.php';
         <button type="submit" class="btn">Salvar Serviço</button>
     </form>
 </div>
-<?php require 'rodape.php'; ?>
+    <?php require 'includes/rodape.php'; ?>
