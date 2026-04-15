@@ -22,6 +22,30 @@ $controllerAtual = $_GET['controller'] ?? 'dashboard';
             background: url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?q=80&w=1920&auto=format&fit=crop') no-repeat center center fixed; 
             background-size: cover; 
         }
+        /* Botão Editar - Laranja */
+a.btn-acao-editar { 
+    background-color: #f59e0b !important; 
+    color: white !important; 
+    padding: 6px 12px !important; 
+    border-radius: 5px !important; 
+    text-decoration: none !important; 
+    font-weight: 600 !important; 
+    font-size: 13px !important;
+    display: inline-block !important;
+    margin-right: 5px !important;
+}
+
+/* Botão Excluir - Vermelho */
+a.btn-acao-excluir { 
+    background-color: #dc2626 !important; 
+    color: white !important; 
+    padding: 6px 12px !important; 
+    border-radius: 5px !important; 
+    text-decoration: none !important; 
+    font-weight: 600 !important; 
+    font-size: 13px !important;
+    display: inline-block !important;
+}
         
         .overlay { 
             position: fixed; 
