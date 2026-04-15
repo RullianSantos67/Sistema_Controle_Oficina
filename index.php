@@ -1,39 +1,51 @@
-<?php 
-        require 'config/conexaoBD.php';
+<?php
+session_start();
+require_once "config/conexaoBD.php";
 
-// Contagens para o painel
-$totalClientes = $conexao->query("SELECT COUNT(*) FROM cliente")->fetchColumn();
-$totalVeiculos = $conexao->query("SELECT COUNT(*) FROM veiculo")->fetchColumn();
-$totalOS = $conexao->query("SELECT COUNT(*) FROM ordem_servico WHERE status = 'Aberta' OR status = 'Em Andamento'")->fetchColumn();
+$controllerName = $_GET['controller'] ?? 'dashboard';
+$action = $_GET['action'] ?? 'index';
 
-            require 'includes/cabecalho.php'; 
-?>
+if (!isset($_SESSION['usuario_id']) && $controllerName != 'auth') {
+    header("Location: index.php?controller=auth&action=login");
+    exit;
+}
 
-<div class="dashboard-grid">
-    <div class="card-dash">
-        <h4>👥 Clientes Cadastrados</h4>
-        <h1><?= $totalClientes ?></h1>
-    </div>
-    <div class="card-dash">
-        <h4>🚗 Veículos na Base</h4>
-        <h1><?= $totalVeiculos ?></h1>
-    </div>
-    <div class="card-dash" style="border-bottom-color: #f59e0b;">
-        <h4>🛠️ O.S. Abertas</h4>
-        <h1 style="color: #d97706;"><?= $totalOS ?></h1>
-    </div>
-</div>
+require_once "controllers/AuthController.php";
+require_once "controllers/ClienteController.php";
+require_once "controllers/VeiculoController.php"; 
+require_once "controllers/PecaController.php";
+require_once "controllers/ServicoController.php";
+require_once "controllers/MecanicoController.php";
+require_once "controllers/OsController.php";
 
-<div class="cartao">
-    <h3>Visão Geral do Sistema</h3>
-    <p style="color: #475569; line-height: 1.6; margin-bottom: 20px;">
-        Bem-vindo ao painel de controle. Aqui você tem um resumo rápido da operação da oficina. 
-        Utilize o menu lateral para gerenciar os cadastros e abrir novas Ordens de Serviço.
-    </p>
-    <div style="display: flex; gap: 20px;">
-        <a href="cadastrar_os.php" class="btn" style="background-color: #10b981; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.3);">📝 Iniciar Nova O.S.</a>
-        <a href="cadastrar_cliente.php" class="btn">➕ Cadastrar Cliente</a>
-    </div>
-</div>
+switch ($controllerName) {
+    case 'auth':     $controller = new AuthController($conexao); break;
+    case 'cliente':  $controller = new ClienteController($conexao); break;
+    case 'veiculo':  $controller = new VeiculoController($conexao); break;
+    case 'peca':     $controller = new PecaController($conexao); break;
+    case 'servico':  $controller = new ServicoController($conexao); break;
+    case 'mecanico': $controller = new MecanicoController($conexao); break;
+    case 'os':       $controller = new OsController($conexao); break;
+    
+    case 'dashboard':
+        require 'includes/cabecalho.php';
+        echo "
+        <div class='cartao card-lg' style='padding: 60px 40px; text-align: center; background: #1e293b; color: white; border-radius: 20px;'>
+            <h1 style='font-size: 36px; color: #38bdf8; margin-bottom: 10px;'>⚙️ AutoMecânica Pro</h1>
+            <p style='color: #94a3b8; margin-bottom: 30px;'>Gestão de Oficina, Clientes e Estoque em um só lugar.</p>
+            <div style='display: flex; gap: 20px; justify-content: center;'>
+                <a href='index.php?controller=os&action=consultar' class='btn-concluir'>Ver Oficina</a>
+                <a href='index.php?controller=os&action=cadastrar' style='background: #38bdf8; color: #0f172a; padding: 10px 25px; border-radius: 8px; text-decoration: none; font-weight: bold;'>Nova O.S.</a>
+            </div>
+        </div>";
+        require 'includes/rodape.php';
+        exit;
+    default:
+        die("Módulo não encontrado.");
+}
 
-<?php require 'includes/rodape.php'; ?>
+if (method_exists($controller, $action)) {
+    $controller->$action();
+} else {
+    echo "Erro: Ação não encontrada.";
+}
