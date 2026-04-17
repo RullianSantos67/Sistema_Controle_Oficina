@@ -12,7 +12,7 @@
                 <option value="Motor" <?= $mecanico['especialidade'] == 'Motor' ? 'selected' : '' ?>>Especialista em Motores</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-warning">Salvar Alterações</button>
+        <button type="submit" class="btn" style="background-color: #f59e0b; color: white; margin-top: 15px;">Atualizar Mecânico</button>
     </form>
 </div>
 <?php require 'includes/rodape.php'; ?>

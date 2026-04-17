@@ -78,5 +78,51 @@ class OsController {
             exit;
         }
     }
+    // Tela e Processo de Edição da O.S.
+    public function editar() {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $id_os = $_GET['id'] ?? null;
+            if (!$id_os) {
+                header('Location: index.php?controller=os&action=consultar');
+                exit;
+            }
+
+            // Busca os dados da OS
+            $os = $this->osModel->consultarOsID($id_os);
+            
+            // TRAVA DE SEGURANÇA: Se já estiver concluída, expulsa de volta pros detalhes
+            if ($os['status'] === 'Concluída') {
+                header('Location: index.php?controller=os&action=detalhes&id=' . $id_os);
+                exit;
+            }
+
+            $veiculos = $this->osModel->obterVeiculos();
+            $mecanicos = $this->osModel->obterMecanicos();
+
+            require 'views/os/editar.php';
+        } 
+        else {
+            // TRAVA DE SEGURANÇA NO POST TAMBÉM (Impede envio de formulário forçado)
+            $os_verificacao = $this->osModel->consultarOsID($_POST['id_os']);
+            if ($os_verificacao['status'] === 'Concluída') {
+                header('Location: index.php?controller=os&action=detalhes&id=' . $_POST['id_os']);
+                exit;
+            }
+
+            // Monta os dados para atualizar
+            $dados = [
+                ':id_os'         => $_POST['id_os'],
+                ':id_veiculo'    => $_POST['id_veiculo'],
+                ':id_mecanico'   => $_POST['id_mecanico'],
+                ':status'        => $_POST['status'],
+                ':data_previsao' => $_POST['data_previsao']
+            ];
+
+            $this->osModel->atualizarOS($dados);
+
+            header('Location: index.php?controller=os&action=detalhes&id=' . $_POST['id_os']);
+            exit;
+        }
+    }
 }
 ?>

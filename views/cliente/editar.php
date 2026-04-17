@@ -19,7 +19,7 @@
           <input type="text" name="telefone" maxlength="15" value="<?= htmlspecialchars($cliente['telefone']) ?>">
       </div>
 
-      <button type="submit" class="btn btn-warning">Salvar alterações</button>
+      <button type="submit" class="btn" style="background-color: #f59e0b; color: white; margin-top: 15px;">Atualizar Cliente</button>
     </form>
 </div>
 <?php require 'includes/rodape.php'; ?>

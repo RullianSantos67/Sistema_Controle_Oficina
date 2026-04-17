@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="grupo-input"><label>Previsão de Entrega:</label><input type="date" name="data_previsao" required></div>
-        <button type="submit" class="btn">Gerar O.S.</button>
+        <button type="submit" class="btn btn-blue" style="margin-top: 15px;">Gerar O.S.</button>
     </form>
 </div>
 <?php require 'includes/rodape.php'; ?>

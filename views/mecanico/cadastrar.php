@@ -11,7 +11,7 @@
                 <option value="Motor">Especialista em Motores</option>
             </select>
         </div>
-        <button type="submit" class="btn">Salvar Cadastro</button>
+       <button type="submit" class="btn btn-blue" style="margin-top: 15px;">Salvar Mecânico</button>
     </form>
 </div>
 <?php require 'includes/rodape.php'; ?>

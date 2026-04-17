@@ -8,7 +8,7 @@
             <div class="grupo-input flex-1"><label>Preço (R$):</label><input type="number" step="0.01" name="preco_base" value="<?= $peca['preco_base'] ?>" required></div>
             <div class="grupo-input flex-1"><label>Quantidade:</label><input type="number" name="quantidade" value="<?= $peca['quantidade_estoque'] ?>" required></div>
         </div>
-        <button type="submit" class="btn btn-warning">Salvar Alterações</button>
+        <button type="submit" class="btn" style="background-color: #f59e0b; color: white; margin-top: 15px;">Atualizar Peça</button>
     </form>
 </div>
 <?php require 'includes/rodape.php'; ?>

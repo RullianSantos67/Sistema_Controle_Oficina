@@ -14,7 +14,7 @@
             <label>Telefone:</label>
             <input type="text" name="telefone" maxlength="15">
         </div>
-        <button type="submit" class="btn">Salvar Cliente</button>
+        <button type="submit" class="btn btn-blue" style="margin-top: 15px;">Salvar Cliente</button>
     </form>
 </div>
 <?php require 'includes/rodape.php'; ?>

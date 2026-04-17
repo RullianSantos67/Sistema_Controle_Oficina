@@ -7,7 +7,7 @@
             <div class="grupo-input flex-1"><label>Preço (R$):</label><input type="number" step="0.01" name="preco_base" required></div>
             <div class="grupo-input flex-1"><label>Quantidade:</label><input type="number" name="quantidade" required></div>
         </div>
-        <button type="submit" class="btn">Salvar Peça</button>
+        <button type="submit" class="btn btn-blue" style="margin-top: 15px;">Salvar Peça</button>
     </form>
 </div>
 <?php require 'includes/rodape.php'; ?>
