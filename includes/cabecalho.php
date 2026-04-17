@@ -462,6 +462,16 @@ $controllerAtual = $_GET['controller'] ?? 'dashboard';
                 </div>
             </div>
 
+            <?php if(isset($_SESSION['usuario_nivel']) && strtolower($_SESSION['usuario_nivel']) == 'admin'): ?>
+    <div class="menu-item <?= $controllerAtual == 'usuario' ? 'active' : '' ?>">
+        <span class="menu-link">⚙️ Admin ▾</span>
+        <div class="dropdown">
+            <a href="index.php?controller=usuario&action=consultar">Gerenciar Usuários</a>
+            <a href="index.php?controller=usuario&action=cadastrar">Novo Usuário</a>
+        </div>
+    </div>
+<?php endif; ?>
+
             <div class="menu-item">
                 <a href="index.php?controller=auth&action=logout" class="menu-link" style="color: #f87171; font-weight: 600;">🚪 Sair</a>
             </div>

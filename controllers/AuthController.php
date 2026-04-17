@@ -18,6 +18,7 @@ class AuthController {
             if ($user && password_verify($senha, $user['senha'])) {
                 $_SESSION['usuario_id'] = $user['id_usuario'];
                 $_SESSION['usuario_nome'] = $user['nome'];
+                $_SESSION['usuario_nivel'] = $user['perfil'];
                 header('Location: index.php?controller=dashboard');
                 exit;
             }

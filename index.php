@@ -19,6 +19,7 @@ require_once "controllers/PecaController.php";
 require_once "controllers/ServicoController.php";
 require_once "controllers/MecanicoController.php";
 require_once "controllers/OsController.php";
+require_once "controllers/UsuarioController.php";
 
 switch ($controllerName) {
     case 'auth':     $controller = new AuthController($conexao); break;
@@ -28,6 +29,9 @@ switch ($controllerName) {
     case 'servico':  $controller = new ServicoController($conexao); break;
     case 'mecanico': $controller = new MecanicoController($conexao); break;
     case 'os':       $controller = new OsController($conexao); break;
+    case 'usuario':
+        $controller = new UsuarioController($conexao);
+        break;
     
     case 'dashboard':
         // AQUI CARREGA O CABEÇALHO E O CSS
