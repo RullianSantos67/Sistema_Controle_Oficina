@@ -33,7 +33,7 @@
         <div style="margin-top: 25px; display: flex; gap: 10px; align-items: center;">
     <button type="submit" class="btn" style="background-color: #f59e0b; color: white; padding: 10px 20px; width: auto;">Atualizar Dados</button>
     
-    <a href="index.php?controller=cliente&action=consultar" 
+    <a href="index.php?controller=usuario&action=consultar" 
        style="background: #e2e8f0; color: #475569; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600;">
        Voltar
     </a>

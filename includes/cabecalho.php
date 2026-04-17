@@ -426,6 +426,10 @@ $controllerAtual = $_GET['controller'] ?? 'dashboard';
             <div class="menu-item <?= $controllerAtual == 'dashboard' ? 'active' : '' ?>">
                 <a href="index.php?controller=dashboard" class="menu-link">📊 Painel</a>
             </div>
+
+            <div class="menu-item <?= $controllerAtual == 'institucional' ? 'active' : '' ?>">
+                <a href="index.php?controller=institucional&action=sobre" class="menu-link">ℹ️ Sobre a Oficina</a>
+            </div>
             
             <div class="menu-item <?= $controllerAtual == 'cliente' ? 'active' : '' ?>">
                 <span class="menu-link">👥 Clientes ▾</span>

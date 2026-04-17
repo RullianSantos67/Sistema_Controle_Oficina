@@ -40,19 +40,18 @@ class OrdemServico {
         return $stmt->execute($dados);
     }
 
-    public function atualizarOS($dados) {
-        // Usa a variável de conexão do seu Model (geralmente é $this->db ou $this->conn)
-        // Se der erro de "Undefined property", troque $this->db pelo nome que você usa nas outras funções aí dentro.
-        $sql = "UPDATE ordem_servico 
-                SET id_veiculo = :id_veiculo, 
-                    id_mecanico = :id_mecanico, 
-                    status = :status, 
-                    data_previsao = :data_previsao 
-                WHERE id_os = :id_os";
-                
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute($dados);
-    }
+ public function atualizarOS($dados) {
+    // Veja que aqui usamos $this->conexao em vez de $this->db
+    $sql = "UPDATE ordem_servico SET 
+            id_veiculo = :id_veiculo, 
+            id_mecanico = :id_mecanico, 
+            status = :status, 
+            data_previsao = :data_previsao 
+            WHERE id_os = :id_os";
+            
+    $stmt = $this->conexao->prepare($sql);
+    $stmt->execute($dados);
+}
 
     // --- GESTÃO DE ITENS (PEÇAS E SERVIÇOS) ---
 
