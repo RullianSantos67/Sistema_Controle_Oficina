@@ -1,6 +1,6 @@
 <?php
 // Puxa o arquivo de conexão geral
-require 'conexao.php';
+require '../config/conexao.php';
 
 try {
     $sql = "CREATE DATABASE IF NOT EXISTS bdOficina";

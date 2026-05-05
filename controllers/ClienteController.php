@@ -9,7 +9,7 @@ class ClienteController {
     }
 
     public function consultar() {
-        $clientes = $this->clienteModel->consultarclientes();
+        $clientes = $this->clienteModel->consultarClientes();
         require 'views/cliente/consultar.php';
     }
 

@@ -1,6 +1,6 @@
 <?php
 // Puxa a conexão específica do banco de dados
-require 'conexaoBD.php';
+require '../config/conexaoBD.php';
 
 try {
     // Tabelas Independentes
